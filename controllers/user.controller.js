@@ -28,14 +28,14 @@ exports.add = function (req, res) {
     });
     newUser.save(function (err) {
         if (err) return handleError(err);
-        console.log('User saved to database');
+        console.log('User added successfully!');
       });
 };
 
 exports.update = function (req, res) {
     UserModel.findByIdAndUpdate(req.params.id, {$set: req.body}, (err, user) => {
         if (err) return next(err);
-        res.send('User udpated.');
+        res.send('User udpated successfully!');
     });
 };
 
