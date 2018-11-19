@@ -4,7 +4,7 @@ exports.test = function (req, res) {
     res.send('From the Test controller!');
 };
 
-exports.getUser = function (req, res) {
+exports.getUser = (req, res) => {
     UserModel.findById(req.params.id, (err, user) =>{
         if (err) return handleError(err);
         res.send(user);
@@ -12,11 +12,17 @@ exports.getUser = function (req, res) {
 };
 
 exports.getAll = (req, res) => {
-    UserModel.find({}, function(err, users) {
+    
+    UserModel.paginate({}, { offset: 3, limit: 3 }, (err, users) => {
         if (err) return next(err);
         res.send(users);
-     });
-    };
+    });
+    
+    /* UserModel.find({}, (err, users )=> {
+        if (err) return next(err);
+        res.send(users);
+     }); */
+}; 
 
 exports.add = function (req, res) {
     const newUser = new UserModel({
