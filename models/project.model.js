@@ -23,8 +23,12 @@ const projectSchema = new Schema({
     },
     workingPeople:{
         users:[user.name]
+    },
+    type:{
+        type: String,
+        require: true
     }
 });
 
 projectSchema.plugin(paginate);
-module.exports = User = mongoose.model('projects', projectSchema);
+module.exports = Project = mongoose.model('projects', projectSchema);

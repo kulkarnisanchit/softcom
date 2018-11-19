@@ -23,4 +23,4 @@ const clientSchema = new Schema({
 });
 
 clientSchema.plugin(paginate);
-module.exports = User = mongoose.model('clients', clientSchema);
+module.exports = Client = mongoose.model('clients', clientSchema);

@@ -1,4 +1,6 @@
 const UserModel = require('../models/user.model');
+let offset = 0;
+let limit = 3;
 
 exports.test = function (req, res) {
     res.send('For the Test!');
@@ -12,7 +14,7 @@ exports.getUser = (req, res) => {
 };
 
 exports.getAll = (req, res) => {
-    UserModel.paginate({}, { offset: 3, limit: 3 }, (err, users) => {
+    UserModel.paginate({}, { offset: offset, limit: limit }, (err, users) => {
         if (err) return next(err);
         res.send(users);
     });
