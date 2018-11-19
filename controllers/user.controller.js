@@ -11,9 +11,12 @@ exports.getUser = function (req, res) {
     })
 };
 
-exports.getAll = function (req, res) {
-    res.send('From the Test controller!');
-};
+exports.getAll = (req, res) => {
+    UserModel.find({}, function(err, users) {
+        if (err) return next(err);
+        res.send(users);
+     });
+    };
 
 exports.add = function (req, res) {
     const newUser = new UserModel({
