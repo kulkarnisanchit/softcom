@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../../controllers/user.controller');
-//const userModel =  require('../../models/user.model');
 
 //@route GET api/users/test
 //@desc Tests users route
