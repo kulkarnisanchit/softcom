@@ -19,8 +19,8 @@ mongoose
     .catch(err => console.log('not connected to mongodb', err));
 
 app.use('/api/users', users);
-/* app.use('/api/projects', projects);
-app.use('/api/clients', clients); */
+app.use('/api/clients', clients);
+app.use('/api/projects', projects);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`server is running on ${port}`));

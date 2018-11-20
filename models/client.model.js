@@ -4,10 +4,10 @@ const paginate = require('mongoose-paginate')
 const Schema = mongoose.Schema;
 
 const clientSchema = new Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     name:{ type: String, require: true },
-    email:{ type: String, require: true },
-    password:{ type: String, require: true },
-    phoneNumber:{ type: Number, require: false }
+    email:{ type: String, require: false },
+    phoneNumber:{ type: String, require: true }
 });
 
 clientSchema.plugin(paginate);
