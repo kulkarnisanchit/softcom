@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const UserModel = require('../models/user.model');
 let offset = 0;
 let limit = 5;

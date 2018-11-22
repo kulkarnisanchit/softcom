@@ -8,7 +8,7 @@ const projects = require('./routes/api/projects');
 const clients = require('./routes/api/clients');
 
 const app = express();
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 const db = require('./config/keys').mongoURI;
@@ -21,6 +21,11 @@ mongoose
 app.use('/api/users', users);
 app.use('/api/clients', clients);
 app.use('/api/projects', projects);
+
+/* app.use(express.static(__dirname + '/dist/softcom'));
+app.get('/*', function(req,res) {
+res.sendFile(path.join(__dirname+'/dist/softcom/index.html'));
+}); */
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`server is running on ${port}`));

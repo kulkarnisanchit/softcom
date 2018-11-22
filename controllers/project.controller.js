@@ -1,6 +1,8 @@
+const mongoose = require('mongoose');
+
 const ProjectModel = require('../models/project.model');
 let offset = 0;
-let limit = 5;
+let limit = 50;
 
 exports.test = function (req, res) {
     res.send('For the Test!');
@@ -21,12 +23,16 @@ exports.getAll = (req, res) => {
 };
 
 exports.add = function (req, res) {
+
     const newProject = new ProjectModel({
         _id: new mongoose.Types.ObjectId,
         name: req.body.name,
         phoneNumber: req.body.phoneNumber,
-        email: req.body.email
+        email: req.body.email,
+        client: req.body.client,
+        workingPeople: req.body.users
     });
+
     newProject.save(function (err) {
         if (err) return res.send(err);
         res.send('project added successfully!');

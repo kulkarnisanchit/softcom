@@ -7,14 +7,14 @@ const projectController = require('../../controllers/project.controller');
 //@access Public
 router.get('/test', projectController.test );
 
- router.post('/add', projectController.add );
-/*
-router.get('/:id', projectController.getClient );
+router.post('/add', projectController.add );
 
 router.get('/', projectController.getAll );
 
+router.get('/:id', projectController.getProject );
+
 router.put('/:id/update', projectController.update);
 
-router.delete('/:id/delete', projectController.delete); */
+router.delete('/:id/delete', projectController.delete); 
 
 module.exports = router;
